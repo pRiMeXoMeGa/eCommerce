@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+
+
+h1 {
+    text-align: center;
+  }
+html, body { height: 100%; }
+.bg-image{
+  margin-left: 3rem;
+  height: 90vh;
+  width: 80vw;
+  opacity: 0.035;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

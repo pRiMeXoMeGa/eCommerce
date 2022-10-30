@@ -1,0 +1,29 @@
+.login-text{
+    color: #5252dc;
+  }
+  .login-text a{
+    color: #5252dc;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .user-image{
+    height: 7rem;
+  }
+  .signup-card{
+    background: #d1effb;  
+    border-radius: 1rem;
+    box-shadow: 0px 0px 3rem #f7f7f7;
+}
+  .signup{
+    border: none;
+    border-radius: 1rem;
+  }
+  .signup-avatar{
+    text-align: center;
+    margin-top: -3rem;
+    margin-bottom: 0.5rem;
+  }
+  .checkPassword{
+    color: red;
+    font-size: 0.8rem;
+  }
