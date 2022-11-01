@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from "@angular/router";
 // import { UserService } from '../service/user.service';
 @Component({
   selector: 'app-login',
@@ -10,16 +11,19 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
   
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-    email: ['', [Validators.required, Validators.email,
-                Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    username: ['', [Validators.required, Validators.minLength(10),
+                Validators.pattern('^[a-zA-Z0-9]([_](?![_])|[a-zA-Z0-9]){8,}[a-zA-Z0-9]$')]],
+    password: ['', [Validators.required, Validators.minLength(8),
+      Validators.pattern('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*_]).{8,}$')]]
   });
   }
-  get f() { return this.loginForm.controls; }
+  get f() { 
+    return this.loginForm.controls; 
+  }
 
     onSubmit() {
     this.submitted = true;
@@ -27,7 +31,8 @@ export class LoginComponent implements OnInit {
         return;
     }
     console.log(this.loginForm.controls)
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value))
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginForm.value));
+    this.router.navigate(['/user']);
   }
 
 }

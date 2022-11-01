@@ -11,22 +11,27 @@
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" formControlName="email" class="form-control" 
-                [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
-              <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                  <div *ngIf="f['email'].errors['required']">Email is required</div>
-                  <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+              <label for="username">Username</label>
+              <input type="text" formControlName="username" class="form-control" 
+                [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+              <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                  <div *ngIf="f['username'].errors['required']">Username is required</div>
+                  <div *ngIf="f['username'].errors['minlength']">Password must be at least 10 characters</div>
+                  <div *ngIf="f['username'].errors['pattern']">Username must be valid, , only '_' special character allowed</div>
               </div>
             </div>
           
             <div class="form-group">
-              <label for="password">Password : </label>
+              <label for="password">Password </label>
               <input type="password" formControlName="password" class="form-control"
                      [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
               <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                   <div *ngIf="f['password'].errors['required']">Password is required</div>
-                  <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+                  <div *ngIf="f['password'].errors['minlength']">Password must be at least 8 characters</div>
+                  <div *ngIf="f['password'].errors['pattern']">
+                    Password must have upper and lower case combination,
+                    should have atleast 1 number, 1 special characters (#,?,!,@,$,%,^,&,*,_).
+                  </div>
               </div>
 
               <div class="text-right forget-pass">
@@ -38,7 +43,7 @@
             </div>
           </form>
           <div class="text-center sign-up-text">
-            Don`t have an account ? <a routerLink="/sign-up">Sign Up</a> here.
+            Don`t have an account ? <a routerLink="/signup">Sign Up</a> here.
           </div>
         </div>
       </div>
