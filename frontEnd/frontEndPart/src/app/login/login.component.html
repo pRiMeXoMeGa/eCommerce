@@ -17,7 +17,7 @@
               <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
                   <div *ngIf="f['username'].errors['required']">Username is required</div>
                   <div *ngIf="f['username'].errors['minlength']">Password must be at least 10 characters</div>
-                  <div *ngIf="f['username'].errors['pattern']">Username must be valid, , only '_' special character allowed</div>
+                  <div *ngIf="f['username'].errors['pattern']">Username must be valid, only '_' special character allowed</div>
               </div>
             </div>
           

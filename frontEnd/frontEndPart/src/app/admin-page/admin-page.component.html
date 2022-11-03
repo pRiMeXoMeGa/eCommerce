@@ -1,11 +1,22 @@
-<h1>First Component</h1>
-
-<nav>
-  <ul>
-    <li><a routerLink="child-a">Child A - Login</a></li>
-    <li><a routerLink="child-b">Child B - Sign Up</a></li>
-    <li><a routerLink="../login">Child C - Relative route</a></li>
-  </ul>
-</nav>
-
+<div>
+  
+  <app-header></app-header>
+  <nav >
+    <div class="row align-items-center p-1 ps-3" style="background-color: #4a4a95; color: white;">
+      <div class="col-1 "><a routerLink="Products" style="text-decoration: none; color: white;">Home</a></div>
+      <div class="col-2">
+          <button class="btn btn-light btn-sm" routerLink="newProduct">Add Product</button>
+      </div>
+      <div class="col-3 ">
+        <form class="d-flex justify-content-center" role="search">
+          <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" style="margin-right: 1rem;">
+          <button class="btn btn-light rounded-pill" type="submit"><img class="icon" src="../../assets/search.png" alt="search" style="height: 1.4rem;width:1.6rem;"></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+</div>
 <router-outlet></router-outlet>
+
+

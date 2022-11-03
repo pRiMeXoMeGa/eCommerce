@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from '../_services/api.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -10,12 +12,15 @@ export class SignUpComponent implements OnInit {
   submitted = false;
   pass = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  signupResponse :any;
+
+  constructor(private formBuilder: FormBuilder,private router: Router,  
+    private apiService:ApiService) { }
   
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      fname: ['', Validators.required],
-      lname: ['', Validators.required],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
       username: ['', [Validators.required, Validators.minLength(10),
         Validators.pattern('^[a-zA-Z0-9]([_](?![_])|[a-zA-Z0-9]){8,}[a-zA-Z0-9]$')]],
       phone: ['',[Validators.required, Validators.pattern('^\\d{10}$')]],
@@ -23,7 +28,7 @@ export class SignUpComponent implements OnInit {
                   Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['', [Validators.required, Validators.minLength(8),
         Validators.pattern('(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*_]).{8,}$')]],
-      c_password: ['', [Validators.required, Validators.minLength(8)]]
+      c_password: ['', [Validators.required, Validators.minLength(8)]],
   });
   }
   get f() { return this.signupForm.controls; }
@@ -33,8 +38,30 @@ export class SignUpComponent implements OnInit {
     if (this.signupForm.invalid) {
         return;
     }
-    console.log(this.signupForm.controls)
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.signupForm.value))
+    this.signupForm.value.usertype = "user";
+    // console.log(this.signupForm.value.usertype)
+    console.log(this.signupForm.value);
+    // console.log(this.signupForm.controls);
+    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.signupForm.value))
+
+    this.apiService.registerNewUser(this.signupForm.value).subscribe(
+      (res: any)=>
+      {
+        this.signupResponse = res;
+        if(this.signupResponse.msg ==='Inserted'){
+          alert(this.signupResponse.msg);
+          this.router.navigate(['/login']);
+        } 
+        else{
+          if(this.signupResponse.msg ==='NotInserted')
+              alert("Having problem in Signing up new user....");
+          else{
+              alert(this.signupResponse.msg);
+              this.router.navigate(['/login']);
+          }
+        }
+    }
+    )
   }
 
   checkPassword() {

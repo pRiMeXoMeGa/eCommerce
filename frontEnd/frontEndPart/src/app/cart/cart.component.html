@@ -1,0 +1,23 @@
+
+<div class="container">
+    <div *ngFor="let product of items" 
+        class="row justify-content-center align-items-center border-secondary"
+        style="margin: 2rem;">
+             <div class="col-6 col-md-4 col-lg-2">
+                 <img src="{{product.prodImg}}" class="card-img-top" alt="...">
+             </div>
+
+             <div class="col-3">
+                <p>Product Name{{product.prodName}}</p>
+                <p>Price - INR {{product.prodPrice}}/-</p>
+                <p>Count - <input type="number" class="col-4"></p>
+             </div> 
+     </div>
+     <div class="row justify-content-center align-items-center border-secondary">
+        <div class="col-3 btn btn-primary btn-sm m-auto mb-0"
+            style="margin-top: 1rem;">
+            Checkout
+        </div>
+     </div>
+        <!-- (click)="addToCart(product)" -->
+</div>

@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="row mt-5">
+
+        <div style="background-color:rgb(218, 215, 215)"
+            class="row shadow-sm p-3 justify-content-center align-items-center">
+            
+            <div class="col">
+                <a style="text-decoration: none; color:black">
+                <div>Prod ID</div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a style="text-decoration: none; color:black">
+                <div>Product Name</div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a style="text-decoration: none; color:black">
+                <div>Stock Left</div>
+                </a>
+            </div>
+
+            <div class="col-2">
+                <a style="text-decoration: none; color:black">
+                <div>Price</div>
+                </a>
+            </div>
+
+            <div class="col-2">
+                <div class="btn">
+                    <a style="color: black;">
+                    <span>
+                        Edit
+                    </span>
+                    </a> 
+                </div>
+                
+                <div class="btn border-0">
+                    <span>
+                        Delete
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngFor="let product of productslist" class="row shadow-sm p-3 justify-content-center align-items-center">
+            
+            <div class="col">
+                <a (click)="giveDetails(product)"  [routerLink]="['../details', product.prodID]" style="text-decoration: none; color:black">
+                <div>{{product.prodID}}</div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a (click)="giveDetails(product)"  [routerLink]="['../details', product.prodID]" style="text-decoration: none; color:black">
+                <div>{{product.prodName}}</div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a (click)="giveDetails(product)"  [routerLink]="['../details', product.prodID]" style="text-decoration: none; color:black">
+                <div>{{product.prodStock}}</div>
+                </a>
+            </div>
+
+            <div class="col-2">
+                <a (click)="giveDetails(product)"  [routerLink]="['../details', product.prodID]" style="text-decoration: none; color:black">
+                <div>INR {{product.prodPrice}}/-</div>
+                </a>
+            </div>
+            <div class="col-2">
+                <div class="btn">
+                    <a (click)="giveDetails(product)" routerLink="../editDetails" style="color: black;">
+                    <span class="material-symbols-outlined">
+                        edit
+                    </span>
+                    </a> 
+                </div>
+                
+                <div class="btn border-0"  
+                    (click)="deleteDetail(product.prodID)">
+                    <span class="material-symbols-outlined">
+                    delete
+                    </span>
+                </div>
+            </div>
+
+            <!--Modal-->
+        </div>
+    </div>
+</div>
+

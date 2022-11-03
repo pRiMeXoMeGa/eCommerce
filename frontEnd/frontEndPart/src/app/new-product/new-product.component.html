@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+  <div class="col-10 col-md-8 col-lg-3 m-3 p-3">
+      <form [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <input type="text" formControlName="prodID" class="form-control m-2 border-0 border-bottom border-primary rounded-0 shadow-sm p-2"  
+              placeholder="Product ID"
+              [ngClass]="{ 'is-invalid': submitted && f['prodID'].errors }" />
+            <div *ngIf="submitted && f['prodID'].errors" class="invalid-feedback">
+                <div *ngIf="f['prodID'].errors['required']">Product ID is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="prodName" class="form-control m-2 border-0 border-bottom border-primary rounded-0 shadow-sm p-2" 
+              placeholder="Product Name"
+              [ngClass]="{ 'is-invalid': submitted && f['prodName'].errors }" />
+            <div *ngIf="submitted && f['prodName'].errors" class="invalid-feedback">
+                <div *ngIf="f['prodName'].errors['required']">Product Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="number" formControlName="prodPrice" class="form-control m-2 border-0 border-bottom border-primary rounded-0 shadow-sm p-2"
+            placeholder="Price of the Product" 
+            [ngClass]="{ 'is-invalid': submitted && f['prodPrice'].errors }" />
+            <div *ngIf="submitted && f['prodPrice'].errors" class="invalid-feedback">
+                <div *ngIf="f['prodPrice'].errors['required']">Price is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="number" formControlName="prodStock" class="form-control m-2 border-0 border-bottom border-primary rounded-0 shadow-sm p-2"
+            placeholder="Number of items available" 
+            [ngClass]="{ 'is-invalid': submitted && f['prodStock'].errors }" />
+            <div *ngIf="submitted && f['prodStock'].errors" class="invalid-feedback">
+                <div *ngIf="f['prodStock'].errors['required']">Items in stock is required</div>
+              </div>
+          </div>
+          <div class="form-group">
+            <input type="url" formControlName="prodImg" class="form-control m-2 border-0 border-bottom border-primary rounded-0 shadow-sm p-2"
+              placeholder="Image URL"
+              [ngClass]="{ 'is-invalid': submitted && f['prodImg'].errors }" />
+            <div *ngIf="submitted && f['prodImg'].errors" class="invalid-feedback">
+                <div *ngIf="f['prodImg'].errors['required']">Image Link is required</div>
+              </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="prodDes" class="form-control m-2 border-0 border-bottom border-primary rounded-0 shadow-sm p-2"
+              placeholder="Product description"
+              [ngClass]="{ 'is-invalid': submitted && f['prodDes'].errors }" />
+            <div *ngIf="submitted && f['prodDes'].errors" class="invalid-feedback">
+                <div *ngIf="f['prodDes'].errors['required']">Product description is required</div>
+            </div>
+          </div>
+            
+          <div class="text-center">
+            <input type="submit" class="btn btn-primary" value="Submit">
+          </div>
+      </form>    
+  </div>
+  </div>

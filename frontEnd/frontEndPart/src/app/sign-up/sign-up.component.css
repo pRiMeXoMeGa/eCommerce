@@ -1,3 +1,4 @@
+
 .login-text{
     color: #5252dc;
   }
@@ -26,4 +27,9 @@
   .checkPassword{
     color: red;
     font-size: 0.8rem;
+  }
+  .btn-color{
+    background-color: #5252dc;
+    border-color: #5252dc;
+    color: #fff;
   }

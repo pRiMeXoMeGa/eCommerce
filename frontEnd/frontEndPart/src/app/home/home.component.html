@@ -1,0 +1,28 @@
+<app-header></app-header>
+<nav class="navbar" style="background-color: #354A93; color: white;">
+    <div class="container-fluid ">
+      <a routerLink="product" style="text-decoration: none; color: white;">Home</a>
+      <div>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-light rounded-pill" type="submit">
+            <img class="icon" src="../../assets/search.png" alt="search" style="height: 20px;width:20px">
+          </button>
+        </form>
+      </div>
+  
+        <div>
+        <a class="btn p-0 me-3" type="button" routerLink="cart">
+          <img class="icon" src="../../assets/cart.png" alt="cart">
+        </a>
+        <button class="btn btn-light p-0 me-2" type="button">
+          <img class="icon" src="../../assets/profile.png" alt="profile">
+        </button>
+      </div>
+      
+  
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+  
+  

@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center"
+        style="margin: 2rem;">
+        <div class="col-4">
+            <img src="{{product.prodImg}}" class="card-img-top" alt="..." 
+                style="width: 22rem;height:22rem">
+        </div>
+
+        <div class="col-3">
+            <p class="card-title">Product Name: {{product.prodName}}</p>
+            <p>Price - INR {{product.prodPrice}}/-</p>
+            <button class="btn btn-primary m-2" 
+                (click)="giveDetails(product)" routerLink="../../editDetails">
+                Update
+            </button>
+            <button class="btn btn-primary m-2"
+                    (click)="deleteDetail(product.prodID)">Delete</button>
+        </div>
+        <p style="margin: 2rem;" class="col-6">Description -{{product.prodDes}}</p>
+    </div>
+</div>
+
+

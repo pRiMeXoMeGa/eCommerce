@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center"
+        style="margin: 2rem;">
+        <div class="col-4">
+            <img src="{{product.prodImg}}" class="card-img-top" alt="..."
+                style="width: 22rem;height:22rem">
+            
+            
+        </div>
+        <div class="col-3">
+            <p class="card-title">Product Name - {{product.prodName}}</p>
+            <p>Price - {{product.prodPrice}}</p>
+            <div class="btn btn-primary btn-sm m-auto mb-0" 
+                (click)="addToCart(product)">Add to cart</div>
+
+            <div class="btn btn-warning btn-sm  mb-0 ms-2" >Buy Now</div>
+        </div>
+        <p style="margin: 2rem;" class="col-6">
+            Description -{{product.prodDes}}</p>
+    </div>
+</div>
+
